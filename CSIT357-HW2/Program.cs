@@ -11,17 +11,19 @@ namespace CSIT357_HW2
 
 			int height = 32, width = height;
 
-			float[,] heightMap = new float[width, height]; // 2D heightmap to create terrain
+			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
 
 			for (int x = 0; x < width; x++)
 			{
 				for (int y = 0; y < height; y++)
 				{
-					heightMap[x, y] = myNoise.GetNoise(x, y);
-					Console.Write(Math.Abs(heightMap[x, y]).ToString("#,##0.00") + " "); // trim output to 2 demical places - displays grid node weights
+					heightMap[x, y].weight = myNoise.GetNoise(x, y);
+					Console.Write(Math.Abs(heightMap[x, y].weight).ToString("#,##0.00") + " "); // trim output to 2 demical places - displays grid node weights
 				}
 				Console.WriteLine();
 			}
+
+			Grid grid = new Grid(heightMap);
 			Console.ReadLine();
 		}
 	}

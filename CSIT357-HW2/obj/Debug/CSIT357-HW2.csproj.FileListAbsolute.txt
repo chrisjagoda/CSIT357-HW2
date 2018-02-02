@@ -4,3 +4,10 @@ D:\GitHub\CSIT357-HW2\CSIT357-HW2\bin\Debug\CSIT357-HW2.pdb
 D:\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.csprojResolveAssemblyReference.cache
 D:\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.exe
 D:\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.pdb
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\bin\Debug\CSIT357-HW2.exe.config
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\bin\Debug\CSIT357-HW2.exe
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\bin\Debug\CSIT357-HW2.pdb
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.csprojResolveAssemblyReference.cache
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.csproj.CoreCompileInputs.cache
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.exe
+C:\Users\chris\Documents\GitHub\CSIT357-HW2\CSIT357-HW2\obj\Debug\CSIT357-HW2.pdb

@@ -5,11 +5,11 @@
 		public int x, y;
 		public float weight;
 
-		public Node(int xCoord, int yCoord, float wgt)
+		public Node(int xCoord, int yCoord, float z)
 		{
 			x = xCoord;
 			y = yCoord;
-			weight = wgt;
+			weight = z;
 		}
 	}
 }
