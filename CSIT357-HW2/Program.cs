@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CSIT357_HW2
 {
@@ -9,7 +10,7 @@ namespace CSIT357_HW2
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
 
-			int height = 32, width = height;
+			int height = 59, width = height;
 
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
 
@@ -17,13 +18,18 @@ namespace CSIT357_HW2
 			{
 				for (int y = 0; y < height; y++)
 				{
-					heightMap[x, y].weight = myNoise.GetNoise(x, y);
-					Console.Write(Math.Abs(heightMap[x, y].weight).ToString("#,##0.00") + " "); // trim output to 2 demical places - displays grid node weights
+					heightMap[x, y] = new Node(x, y, Util.Clamp(myNoise.GetNoise(x, y) + (float)0.5, 0, 1));
+					Console.Write(heightMap[x, y].weight.ToString("0.0") + " "); // trim output to 1 demical place between 0 and 1 inclusive - displays grid node weights
 				}
 				Console.WriteLine();
 			}
 
 			Grid grid = new Grid(heightMap);
+			List<Node> neighbors = grid.getNeighbors(30, 30);
+			foreach (Node n in neighbors)
+			{
+				Console.WriteLine(n.x.ToString() + " " + n.y.ToString() + " " + n.weight.ToString("#,##0.00") + " ");
+			}
 			Console.ReadLine();
 		}
 	}

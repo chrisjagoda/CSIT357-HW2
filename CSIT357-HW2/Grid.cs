@@ -1,31 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CSIT357_HW2
 {
 	class Grid
 	{
 		public Node[,] grid;
+		private int width;
+		private int height;
 
 		public Grid(Node[,] nodes)
 		{
 			grid = nodes;
+			width = grid.GetLength(0);
+			height = grid.GetLength(1);
 		}
 
-		public List<Node> getNeighbors(Node node)
+		public List<Node> getNeighbors(int x, int y)
 		{
 			List<Node> neighbors = new List<Node>();
-			if (node.x > 0)
+			
+			try
 			{
-				neighbors.Add(grid[node.x - 1, node.y]);
-			}
-			else if (node.x < grid.Length-1)
-			{
-				neighbors.Add(grid[node.x + 1, node.y]);
-			}
+				if (x > 0)
+				{
+					neighbors.Add(grid[x - 1, y]);
+				}
+				if (x < grid.GetLength(0)-1)
+				{
+					neighbors.Add(grid[x + 1, y]);
+				}
 
-			if (node.y > 0)
+				if (y > 0)
+				{
+					neighbors.Add(grid[x, y - 1]);
+				}
+				if (y < grid.GetLength(1)-1)
+				{
+					neighbors.Add(grid[x, y + 1]);
+				}
+			}
+			catch (IndexOutOfRangeException e)
 			{
-				neighbors.Add(grid[node.x - 1, node.y]);
+				Console.Error.Write(e.Message);
 			}
 
 			return neighbors;
