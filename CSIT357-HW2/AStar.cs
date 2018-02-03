@@ -26,18 +26,19 @@ namespace CSIT357_HW2
 
 		private List<Node> BuildShortestPath(List<Node> list, Grid grid, Node node)
 		{
+			List<Node> shortestPath = new List<Node>();
+
 			while (node.ClosestToStart != null)
 			{
-				list.Add(node.ClosestToStart);
+				shortestPath.Add(node.ClosestToStart);
 
-				List<Node> neighbors = grid.GetNeighbors(node.X, node.Y);
 				ShortestPathLength += 1; //	each path movement is 1 unit because we are only traveling horizontally and vertically on a grid
-				ShortestPathCost += HeightDifference(neighbors.Single(x => x == node.ClosestToStart).Height, node.Height);	// add difference in height between each node
+				ShortestPathCost += HeightDifference(node.Neighbors.Single(x => x == node.ClosestToStart).Height, node.Height);	// add difference in height between each node
 
 				node = node.ClosestToStart;
 			}
 
-			return list;
+			return shortestPath;
 		}
 
 		private static List<Node> Search(Node start, Node end, Grid grid)
@@ -55,7 +56,12 @@ namespace CSIT357_HW2
 				priorityQueue.Remove(node);
 				nodeVisits++;
 
-				foreach (Node neighbor in grid.GetNeighbors(start.X, start.Y).OrderBy(x => HeightDifference(node.Height, x.Height)))
+				if (node.Neighbors.Count == 0)
+				{
+					node.Neighbors = grid.GetNeighbors(node.X, node.Y);
+				}
+
+				foreach (Node neighbor in node.Neighbors.OrderBy(x => HeightDifference(node.Height, x.Height)))
 				{
 					if (neighbor.Visited)
 					{
