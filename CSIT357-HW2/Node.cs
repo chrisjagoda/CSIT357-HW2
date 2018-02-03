@@ -2,14 +2,18 @@
 {
 	class Node
 	{
-		public int x, y;
-		public float weight;
+		public int X, Y;
+		public float DistanceToEnd;	// Straight line distance to end
+		public float? CostToStart;	// Minimum cost to start
+		public float Height;        // Heuristic for search algorithm
+		public Node ClosestToStart; // Closest adjacent node to starting node
+		public bool Visited;
 
 		public Node(int xCoord, int yCoord, float z)
 		{
-			x = xCoord;
-			y = yCoord;
-			weight = z;
+			X = xCoord;
+			Y = yCoord;
+			Height = z;
 		}
 	}
 }

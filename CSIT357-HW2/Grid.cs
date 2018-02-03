@@ -5,18 +5,23 @@ namespace CSIT357_HW2
 {
 	class Grid
 	{
-		public Node[,] grid;
-		private int width;
-		private int height;
+		public Node[,] Nodes;
+		private int Width;
+		private int Height;
 
 		public Grid(Node[,] nodes)
 		{
-			grid = nodes;
-			width = grid.GetLength(0);
-			height = grid.GetLength(1);
+			Nodes = nodes;
+			Width = Nodes.GetLength(0);
+			Height = Nodes.GetLength(1);
 		}
 
-		public List<Node> getNeighbors(int x, int y)
+		public Node GetNode(int x, int y)
+		{
+			return Nodes[x, y];
+		}
+
+		public List<Node> GetNeighbors(int x, int y)
 		{
 			List<Node> neighbors = new List<Node>();
 			
@@ -24,20 +29,20 @@ namespace CSIT357_HW2
 			{
 				if (x > 0)
 				{
-					neighbors.Add(grid[x - 1, y]);
+					neighbors.Add(Nodes[x - 1, y]);
 				}
-				if (x < grid.GetLength(0)-1)
+				if (x < Nodes.GetLength(0)-1)
 				{
-					neighbors.Add(grid[x + 1, y]);
+					neighbors.Add(Nodes[x + 1, y]);
 				}
 
 				if (y > 0)
 				{
-					neighbors.Add(grid[x, y - 1]);
+					neighbors.Add(Nodes[x, y - 1]);
 				}
-				if (y < grid.GetLength(1)-1)
+				if (y < Nodes.GetLength(1)-1)
 				{
-					neighbors.Add(grid[x, y + 1]);
+					neighbors.Add(Nodes[x, y + 1]);
 				}
 			}
 			catch (IndexOutOfRangeException e)
