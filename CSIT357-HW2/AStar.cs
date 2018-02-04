@@ -36,6 +36,8 @@ namespace CSIT357_HW2
 				node = node.ClosestToStart;
 			}
 
+			shortestPath.Reverse();
+
 			return shortestPath;
 		}
 

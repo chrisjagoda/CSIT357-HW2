@@ -10,8 +10,8 @@ namespace CSIT357_HW2
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
 			int intensity = 500;
-			int height = 100;
 			int width = 300;
+			int height = 84;
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
 
 			// Set heuristics and create height map to form grid
@@ -26,7 +26,7 @@ namespace CSIT357_HW2
 			
 			Grid grid = new Grid(heightMap);
 			Node start = grid.GetNode(1, 1);
-			Node end = grid.GetNode(299, 99);
+			Node end = grid.GetNode(width-2, height-2);
 			List<Node> path;
 			AStar search = new AStar();
 			path = search.GetShortestPath(start, end, grid);
