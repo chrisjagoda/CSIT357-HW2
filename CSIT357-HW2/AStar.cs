@@ -17,16 +17,14 @@ namespace CSIT357_HW2
 			{
 				node.DistanceToEnd = StraightLineDistanceTo(node.X, node.Y, end.X, end.Y);
 			}
-
-			List<Node> shortestPath = BuildShortestPath(Search(start, end, grid), grid, end);
-			shortestPath.Reverse();
 			
-			return shortestPath;
+			return BuildShortestPath(Search(start, end, grid), grid, end);
 		}
 
 		private List<Node> BuildShortestPath(List<Node> list, Grid grid, Node node)
 		{
 			List<Node> shortestPath = new List<Node>();
+			shortestPath.Add(node);
 
 			while (node.ClosestToStart != null)
 			{

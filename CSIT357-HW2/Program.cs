@@ -9,8 +9,9 @@ namespace CSIT357_HW2
 		{
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
+			int intensity = 100;
 
-			int height = 59, width = height;
+			int height = 200, width = height;
 
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
 
@@ -18,8 +19,8 @@ namespace CSIT357_HW2
 			{
 				for (int y = 0; y < height; y++)
 				{
-					heightMap[x, y] = new Node(x, y, Util.Clamp(myNoise.GetNoise(x, y) + (float)0.5, 0, 1));
-					Util.setColor(heightMap[x, y].Height);
+					heightMap[x, y] = new Node(x, y, Util.Clamp((myNoise.GetNoise(x, y) + (float)0.5) * intensity, 0, intensity));
+					Util.setColor(heightMap[x, y].Height, intensity);
 					Console.Write(heightMap[x, y].Height.ToString("0.0") + " "); // trim output to 1 demical place between 0 and 1 inclusive - displays grid node Heights
 				}
 				Console.WriteLine();
@@ -28,8 +29,8 @@ namespace CSIT357_HW2
 
 			Grid grid = new Grid(heightMap);
 
-			Node start = grid.GetNode(30, 30);
-			Node end = grid.GetNode(15, 50);
+			Node start = grid.GetNode(190, 190);
+			Node end = grid.GetNode(15, 49);
 			List<Node> path;
 
 			AStar search = new AStar();

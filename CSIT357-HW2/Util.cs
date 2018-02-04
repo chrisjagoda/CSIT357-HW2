@@ -10,9 +10,9 @@ namespace CSIT357_HW2
 		}
 
 
-		public static void setColor(float val)
+		public static void setColor(float val, int intensity)
 		{
-			int caseSwitch = (int)Math.Floor(val * 10);
+			int caseSwitch = (int)Math.Floor(val / intensity * 10);
 			switch (caseSwitch)
 			{
 				case 0:
