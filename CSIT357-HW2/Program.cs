@@ -8,8 +8,9 @@ namespace CSIT357_HW2
 		static void Main(string[] args)
 		{
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
+			// FastNoise myNoise = new FastNoise(24); // Create a FastNoise object with a static seed - 24
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
-			int intensity = 500;
+			int intensity = 500; // The degree of intensity in height between each node - effects generally seen in 100+ range
 			int width = 300;
 			int height = 84;
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
@@ -20,7 +21,7 @@ namespace CSIT357_HW2
 				for (int y = 0; y < height; y++)
 				{
 					heightMap[x, y] = new Node(x, y, Util.Clamp((myNoise.GetNoise(x, y) + (float)0.5) * intensity, 0, intensity));
-					// Console.Write(heightMap[x, y].Height.ToString("0.0") + " "); // trim output to 1 demical place between 0 and 1 inclusive - displays grid node Heights
+					// Console.Write(heightMap[x, y].Height.ToString("0.0") + " "); // displays grid node Heights and trim output to 1 demical place between 0 and 1 inclusive
 				}
 			}
 			
