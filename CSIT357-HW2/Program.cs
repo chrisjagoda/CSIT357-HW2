@@ -10,7 +10,7 @@ namespace CSIT357_HW2
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
 			// FastNoise myNoise = new FastNoise(24); // Create a FastNoise object with a static seed - 24
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
-			int intensity = 500; // The degree of intensity in height between each node - effects generally seen in 100+ range
+			int intensity = 50000; // The degree of intensity in height between each node - effects generally seen in 100+ range
 			int width = 300;
 			int height = 84;
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
@@ -61,6 +61,7 @@ namespace CSIT357_HW2
 
 			Console.WriteLine("Path length: " + search.ShortestPathLength);
 			Console.WriteLine("Path cost: " + search.ShortestPathCost);
+			Console.WriteLine("Average path cost per node: " + search.ShortestPathCost/search.ShortestPathLength);
 
 			Console.ReadLine();
 		}
