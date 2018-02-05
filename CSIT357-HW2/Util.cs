@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSIT357_HW2
+namespace AStar
 {
 	class Util
 	{

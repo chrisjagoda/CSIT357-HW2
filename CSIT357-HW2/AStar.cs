@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CSIT357_HW2
+namespace AStar
 {
 	class AStar
 	{

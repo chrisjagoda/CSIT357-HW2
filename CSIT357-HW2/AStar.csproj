@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AStar.cs" />
-    <Compile Include="FastNoise.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
@@ -54,6 +53,12 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastNoise\FastNoise.csproj">
+      <Project>{c9a1ce36-fc85-4a7b-88bd-9c89097cd23d}</Project>
+      <Name>FastNoise</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

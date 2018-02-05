@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CSIT357_HW2
+namespace AStar
 {
 	class Grid
 	{
