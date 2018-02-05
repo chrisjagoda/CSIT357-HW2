@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar", "CSIT357-HW2\AStar.csproj", "{6800FE32-8B1C-4C86-9E1F-7BE7582E4A35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar", "AStar\AStar.csproj", "{6800FE32-8B1C-4C86-9E1F-7BE7582E4A35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastNoise", "FastNoise\FastNoise.csproj", "{C9A1CE36-FC85-4A7B-88BD-9C89097CD23D}"
 EndProject
