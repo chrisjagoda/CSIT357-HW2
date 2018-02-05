@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FastNoise\FastNoise.csproj">
-      <Project>{c9a1ce36-fc85-4a7b-88bd-9c89097cd23d}</Project>
+      <Project>{f33bbf8f-0fc9-4529-84b4-1bdcac61e85c}</Project>
       <Name>FastNoise</Name>
     </ProjectReference>
   </ItemGroup>

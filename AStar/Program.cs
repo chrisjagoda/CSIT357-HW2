@@ -10,9 +10,9 @@ namespace AStar
 			FastNoise myNoise = new FastNoise(new Random().Next(0, 9999)); // Create a FastNoise object with a random seed
 			// FastNoise myNoise = new FastNoise(24); // Create a FastNoise object with a static seed - 24
 			myNoise.SetNoiseType(FastNoise.NoiseType.Perlin); // Set the desired noise type
-			int intensity = 50000; // The degree of intensity in height between each node - effects generally seen in 100+ range
-			int width = 300;
-			int height = 84;
+			int intensity = 300; // The degree of intensity in height between each node - effects generally seen in 100+ range
+			int width = 333;
+			int height = 100;
 			Node[,] heightMap = new Node[width, height]; // 2D heightmap to create terrain/heuristic
 
 			// Set heuristics and create height map to form grid
@@ -56,7 +56,7 @@ namespace AStar
 
 			foreach (Node node in path)
 			{
-				Console.WriteLine(node.X + " " + node.Y);
+				Console.WriteLine(node.X + " " + node.Y + " " + node.Height);
 			}
 
 			Console.WriteLine("Path length: " + search.ShortestPathLength);
