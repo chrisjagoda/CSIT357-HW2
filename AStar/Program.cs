@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AStar
 {
@@ -53,16 +54,17 @@ namespace AStar
 			}
 
 			Console.BackgroundColor = ConsoleColor.Black;
+			float previousNodeHeight = path.First().Height;
 
 			foreach (Node node in path)
 			{
-				Console.WriteLine(node.X + " " + node.Y + " " + node.Height);
+				Console.WriteLine(node.X + " " + node.Y + " " + Math.Abs(previousNodeHeight - node.Height));
+				previousNodeHeight = node.Height;
 			}
 
 			Console.WriteLine("Path length: " + search.ShortestPathLength);
 			Console.WriteLine("Path cost: " + search.ShortestPathCost);
 			Console.WriteLine("Average path cost per node: " + search.ShortestPathCost/search.ShortestPathLength);
-
 			Console.ReadLine();
 		}
 	}
