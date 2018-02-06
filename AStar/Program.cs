@@ -29,10 +29,10 @@ namespace AStar
 			Grid grid = new Grid(heightMap);
 			Node start = grid.GetNode(1, 1);
 			Node end = grid.GetNode(width-2, height-2);
-			List<Node> path;
 			AStar search = new AStar();
-			path = search.GetShortestPath(start, end, grid);
-
+			search.Search(start, end, grid);
+			List<Node> path = search.GetShortestPath(end, grid);
+			
 			// Draw grid with path
 			for (int y = 0; y < height; y++)
 			{
@@ -42,6 +42,12 @@ namespace AStar
 					{
 						Console.BackgroundColor = ConsoleColor.Black;
 						Console.Write("X");
+					}
+					else if (grid.GetNode(x, y).Visited)
+					{
+						// Console.BackgroundColor = ConsoleColor.Green;
+						Util.setColor(heightMap[x, y].Height, intensity);
+						Console.Write("V");
 					}
 					else
 					{
@@ -62,6 +68,8 @@ namespace AStar
 				previousNodeHeight = node.Height;
 			}
 
+			Console.WriteLine("Total nodes: " + width * height);
+			Console.WriteLine("Node visits: " + search.NodeVisits);
 			Console.WriteLine("Path length: " + search.ShortestPathLength);
 			Console.WriteLine("Path cost: " + search.ShortestPathCost);
 			Console.WriteLine("Average path cost per node: " + search.ShortestPathCost/search.ShortestPathLength);

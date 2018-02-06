@@ -8,20 +8,11 @@ namespace AStar
 	{
 		public double ShortestPathLength = 0;
 		public double ShortestPathCost = 0;
+		public int NodeVisits = 0;
 
 		public AStar() { }
 
-		public List<Node> GetShortestPath(Node start, Node end, Grid grid)
-		{
-			foreach (Node node in grid.Nodes)
-			{
-				node.DistanceToEnd = StraightLineDistanceTo(node.X, node.Y, end.X, end.Y);
-			}
-			
-			return BuildShortestPath(Search(start, end, grid), grid, end);
-		}
-
-		private List<Node> BuildShortestPath(List<Node> list, Grid grid, Node node)
+		public List<Node> GetShortestPath(Node node, Grid grid)
 		{
 			List<Node> shortestPath = new List<Node>();
 			shortestPath.Add(node);
@@ -41,20 +32,24 @@ namespace AStar
 			return shortestPath;
 		}
 
-		private static List<Node> Search(Node start, Node end, Grid grid)
+		public List<Node> Search(Node start, Node end, Grid grid)
 		{
-			int nodeVisits = 0;
 			start.CostToStart = 0; // initialize the cost of start of start to 0
 			List<Node> priorityQueue = new List<Node>();
 			priorityQueue.Add(start);
 			bool searching = true;
+
+			foreach (Node node in grid.Nodes)
+			{
+				node.DistanceToEnd = StraightLineDistanceTo(node.X, node.Y, end.X, end.Y);
+			}
 
 			do
 			{
 				priorityQueue = priorityQueue.OrderBy(n => n.CostToStart + n.DistanceToEnd).ToList();
 				Node node = priorityQueue.First();
 				priorityQueue.Remove(node);
-				nodeVisits++;
+				NodeVisits++;
 
 				if (node.Neighbors.Count == 0)
 				{
