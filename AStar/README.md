@@ -1,4 +1,6 @@
-This is an AStar path finding algorithm implemented on a grid/height map with perlin noise generated height values.
+# A* *Pathfinding #
+
+This is an A* *pathfinding algorithm implemented on a grid/heightmap with perlin noise generated height values.
 
 Each node in the grid travels only horizontally and vertically with the distance between each node being 1 unit.
 
